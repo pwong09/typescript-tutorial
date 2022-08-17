@@ -71,3 +71,15 @@ function tooManyScoops(dessert: IceCream) {
 }
 
 console.log(tooManyScoops({flavor: 'vanilla', scoops: 5, instructions: "everything"}))
+
+// indexable types of interfaces have an index signature
+// describes the type you can use to index into the object,
+// along with corresponding return types when indexing
+
+interface anotherIceCreamArray {
+    [index: number]: string;
+}
+let newIceCream: anotherIceCreamArray; 
+newIceCream = ['chocolate', 'vanilla', 'strawberry'];
+let myString: string = newIceCream[0];
+console.log(myString); // consoles chocolate
