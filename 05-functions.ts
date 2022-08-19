@@ -6,7 +6,7 @@
 function addNumbers(x: number, y: number): number {
     return x + y;
 }
-addNumbers(1, 2);
+console.log(addNumbers(1, 2));
 
 
 // contextual typing
@@ -24,3 +24,21 @@ let total = function (input: number[]): number {
 
 // using implicit return
 let addNumbers2 = (x: number, y: number): number => x + y;
+
+function displayAlert(message: string) {
+  alert("The message is " + message);
+}
+
+function sum(input: number[]): number {
+  let total = 0;
+  for (let count = 0; count < input.length; count++) {
+    if (isNaN(input[count])) {
+      continue;
+    }
+    total += Number(input[count]);
+  }
+  return total;
+}
+
+console.log(sum([1, 2, 3]));
+// sum([1, "two", 3]); // error - TS checks each element in array
