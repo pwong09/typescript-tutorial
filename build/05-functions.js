@@ -68,4 +68,21 @@ function addAllNumbers(x, ...args) {
 }
 addAllNumbers(1, 2, 3, 4, 5, 6, 7); // returns 28
 addAllNumbers(2); // returns 2
-// addAllNumbers(2, 3, "three");        // flags error due to data type at design time, returns 5
+function displayMessage({ text, sender }) {
+    console.log(`Message from ${sender}: ${text}`);
+}
+displayMessage({ sender: 'Pearl', text: 'Hello World!' });
+let addThreeNumbers = (x, y, z) => x + y + z;
+// addThreeNumbers(10, 20) // expects 3 arguments, got 2
+// addThreeNumbers(10, 20, 30, 40) // expects 3 arguments, got 4
+let addThreeNumbersAgain = (x, y, z) => {
+    if (z === undefined) {
+        return x + y;
+    }
+    else {
+        return x + y + z;
+    }
+};
+let subtractThreeNumbers = (x, y, z = 100) => x - y - z;
+console.log(subtractThreeNumbers(10, 20));
+console.log(subtractThreeNumbers(10, 20, 15));
