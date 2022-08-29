@@ -117,3 +117,32 @@ let subtractThreeNumbers = (x: number, y: number, z = 100): number => x - y - z;
 
 console.log(subtractThreeNumbers(10, 20)); // returns -110, b/c default z=100
 console.log(subtractThreeNumbers(10, 20, 15)); // returns -25
+
+// Defining function types
+
+// type calculator = (x: number, y: number) => number;
+interface calculator {
+    (x: number, y: number): number;
+}
+
+// these 3 statements are identical to TS:
+let addition: calculator = (x: number, y: number): number => x + y;
+// let addition: calculator = (number1: number, number2: number): number => number1 + number2;
+// let addition: calculator = (num1, num2) => num1 + num2;
+
+let subtraction: calculator = (x: number, y: number): number => x - y;
+
+let doCalculation = (operation: 'add' | 'subtract'): calculator => {
+    if (operation === 'add') {
+        return addition;
+    } else {
+        return subtraction;
+    }
+}
+
+console.log(doCalculation('add')(1, 2))
+
+// when defining a function, names of function parameters
+// do not need to match function type's
+// can leave off parameter types and return type
+// b/c TS will infer from function type
